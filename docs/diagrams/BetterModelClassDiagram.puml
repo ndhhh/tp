@@ -23,5 +23,5 @@ Person *--> Phone
 Person *--> Email
 Person *--> TelegramHandlePerson *--> Attendance
 
-Attendance -up-> "11" Tutorial
+Attendance *-up-> "11" Tutorial
 @enduml
