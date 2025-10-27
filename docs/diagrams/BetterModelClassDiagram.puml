@@ -21,5 +21,7 @@ Person *--> Name
 Person *--> StudentId
 Person *--> Phone
 Person *--> Email
-Person *--> TelegramHandle
+Person *--> TelegramHandlePerson *--> Attendance
+
+Attendance -up-> "11" Tutorial
 @enduml
