@@ -61,7 +61,6 @@ public class SortCommand extends Command {
         case "n/":
             // If sorting by name, just call model to sort
             model.sortPersonsByName();
-            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
             return new CommandResult(MESSAGE_SUCCESS_NAME);
         case "ex/":
             // If sorting by exam, call model to sort based on exam type
@@ -69,7 +68,6 @@ public class SortCommand extends Command {
                 throw new CommandException(MESSAGE_USAGE);
             }
             model.sortPersonsByExam(this.exam);
-            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
             return new CommandResult(MESSAGE_SUCCESS_EXAM);
         default:
             throw new CommandException(MESSAGE_USAGE);
