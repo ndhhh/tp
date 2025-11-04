@@ -33,7 +33,7 @@ public class EditScoreCommandParser implements Parser<EditScoreCommand> {
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_EXAM, PREFIX_MAX_SCORE);
 
-        String examName = argMultimap.getValue(PREFIX_EXAM).get();
+        String examName = argMultimap.getValue(PREFIX_EXAM).get().toLowerCase();
         Exam exam = ParserUtil.parseExam(examName);
 
         String score = argMultimap.getValue(PREFIX_MAX_SCORE).get();

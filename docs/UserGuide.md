@@ -81,15 +81,15 @@ For CS1101S TAs that are good at using the Command Line, CadetHQ gives you the p
 ## Contact Details
 A table of all the information that can be associated with a contact
 
-| Name             | Prefix | Example         | Constraints                                                                                                                                                                                |
-|------------------|--------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Index            |        | 1               | - Must be a positive integer                                                                                                                                                               |
-| Student ID (SID) |        | A0123456A       | - Must be 9-characters long <br> - First character must be "A" or “a” <br> - Second to eighth characters must be a number<br> - Last character must be an alphabet <br> (case-insensitive) |
-| Name             | n/     | John Doe        | - Only alphanumeric characters and spaces                                                                                                                                                  |
-| Phone number     | p/     | 98765432        | - Must consist of 8 digits <br> - Must start with the number "6", "8" or "9"                                                                                                                    |
-| Email            | e/     | johnd@u.nus.edu | - Must be of the format *local-part* @u.nus.edu<br>  - *local-part* should only contain alphanumeric characters                                                           |
-| Telegram handle  | h/     | @JohnDoe        | - Must start with "@" <br> - Remaining characters must be alphanumeric or underscores                                                                                                      |
-| Tag              | t/     | Friend          | - Should contain only alphanumeric characters and whitespaces <br> - Leading and trailing whitespaces are ignored <br> - There can be no more than 1 whitespace between each alphanumeric character                                                                                                                                                                     |
+| Name             | Prefix | Example         | Constraints                                                                                                                                                                                         |
+|------------------|--------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Index            |        | 1               | - Must be a positive integer                                                                                                                                                                        |
+| Student ID (SID) |        | A0123456A       | - Must be 9-characters long <br> - First character must be "A" or “a” <br> - Second to eighth characters must be a number<br> - Last character must be an alphabet <br> (case-insensitive)          |
+| Name             | n/     | John Doe        | - Only alphanumeric characters and spaces <br> - Multiple whitespace characters between words will be condensed to a single space                                                                   |
+| Phone number     | p/     | 98765432        | - Must consist of 8 digits <br> - Must start with the number "6", "8" or "9"                                                                                                                        |
+| Email            | e/     | johnd@u.nus.edu | - Must be of the format *local-part* @u.nus.edu<br>  - *local-part* should only contain alphanumeric characters                                                                                     |
+| Telegram handle  | h/     | @JohnDoe        | - Must start with "@" <br> - Remaining characters must be alphanumeric or underscores                                                                                                               |
+| Tag              | t/     | Friend          | - Should contain only alphanumeric characters and whitespaces <br> - Leading and trailing whitespaces are ignored <br> - There can be no more than 1 whitespace between each alphanumeric character |
 
 
 The index refers to the index number shown in the displayed person list.
@@ -154,11 +154,11 @@ Adds a student to CadetHQ.
 
 Format: `add SID n/NAME p/PHONE_NUMBER e/EMAIL h/TELEGRAM_HANDLE [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
 A person can have 0 or more tags!
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
 Tags can be used to note a student's tutorial group!
 </div>
 
@@ -172,7 +172,7 @@ Examples:
 * `add A1234567B n/Betsy Crowe t/friend e/betsycrowe@u.nus.edu p/89891206 t/needshelp h/@BetsyC`
 ![result for `add A1234567B n/Betsy Crowe t/friend e/betsycrowe@u.nus.edu p/89891206 t/needshelp h/@BetsyC`](images/addBetsyCrowe.png)
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
 Duplicate students cannot be added to CadetHQ. A student is considered a duplicate student if either the SID or the email are the same as another existing student in CadetHQ. It is recommended to use the student's email starting with e, instead of his nus friendly mail. Rationale: SID and email are uniquely given by NUS, whereas it is possible for students to share phone contact for a brief period of time.
 </div>`
 
@@ -186,24 +186,24 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [h/TELEGRAM_HANDLE] [t/TAG]…�
 * All parameters must not be blank
 * All parameters must adhere to constraints detailed in [Contact Details](#contact-details)
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
 At least one of the optional fields must be provided.
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
 Existing values will be updated to the input values.
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
 If email is being edited, it must be a unique email not currently present in CadetHQ.
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
 When editing tags, the existing tags of the student will be removed i.e. adding of tags is not cumulative.
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can remove all the student’s tags by typing `t/` without specifying any tags after it.
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
+You can remove all the student’s tags by typing <code>t/</code> without specifying any tags after it.
 </div>
 
 Examples:
@@ -220,8 +220,8 @@ Format: `delete INDEX` or `delete SID`
 * Deletes the student at the specified `INDEX` or with the given `SID`.
 * `INDEX` and `SID` parameters must adhere to constraints detailed in [Contact Details](#contact-details)
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
-Use the `list` command to restore the full list of students before using a `delete` command.
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
+Use the <code>list</code> command to restore the full list of students before using a <code>delete</code> command.
 </div>
 
 Examples:
@@ -251,8 +251,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * Students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can use the `list` command to restore the full list of students after a `find` command.
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
+You can use the <code>list</code> command to restore the full list of students after a <code>find</code> command.
 </div>
 
 Examples:
@@ -269,8 +269,8 @@ Format: `view INDEX` or `view SID`
 * Finds the student at the specified `INDEX` or with the given `SID` and displays their information.
 * `INDEX` and `SID` parameters must adhere to constraints detailed in [Contact Details](#contact-details)
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can use the `list` command to restore the full list of students after a `view` command.
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
+You can use the <code>list</code> command to restore the full list of students after a <code>view</code> command.
 </div>
 
 Examples:
@@ -287,11 +287,16 @@ Format: `sort n/` or `sort ex/EXAM`
 * `sort n/` sorts the students in ascending order by name.
 * `sort ex/` sorts the students in ascending order by exam score for the specified exam.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+| Field | Requirement                                                                                                                                                             |
+|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message. |                                                                                                                      |
+
+
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
 Students with no recorded scores will be shifted to the bottom of the displayed student list when sorted by exam scores.
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Note:</strong>
 
 * To guard against accidental inputs/typos, `sort` <u>ignores</u> certain parts of the command that are <u>not needed in execution</u>.
 
@@ -306,7 +311,7 @@ Students with no recorded scores will be shifted to the bottom of the displayed 
 
 Examples:
 * `sort n/` sorts in ascending order of names.
-* `sort ex/midterm` sorts in ascending order of midterm scores.
+* `sort ex/midTerm` sorts in ascending order of midterm scores.
 * `sort ex/final` sorts in ascending order of final scores.
   ![result for `sort ex/final`](images/sortByFinal.png)
 
@@ -326,8 +331,8 @@ Format: `attend INDEX TUTORIAL` or `attend SID TUTORIAL`
 |------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tutorial | Refers to the tutorial number. <br> Must be **between 1 and 11 (inclusive).** |
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Entering the same `attend` command inverts the attendance for the given `TUTORIAL` and student at `INDEX` or with `SID`.
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
+Entering the same <code>attend</code> command inverts the attendance for the given <code>TUTORIAL</code> and student at <code>INDEX</code> or with <code>SID</code>.
 </div>
 
 Examples:
@@ -348,15 +353,16 @@ Adds the specified score for the specified exam for the specified student from C
 Format: `score INDEX ex/EXAM s/SCORE` or `score SID ex/EXAM s/SCORE`
 
 * Adds the specified score `SCORE` for the specified exam `EXAM`, for the person at the specified `INDEX` or with the given `SID`.
+* If input `SCORE` is `unrecorded`, will set score of specified person and exam to `unrecoded` instead
 * `INDEX` and `SID` parameters must adhere to constraints detailed in [Contact Details](#contact-details)
 * The default maximum marks for the midterm is 70 and the default maximum marks for the final is 100.
 
 
 
-| Field | Requirement                                                                                                                                                                 |
-|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Score | Refers to the score attained by the specified student for the specified exam. <br> Must be a **non-negative integer that is not larger than the max score** of the specified exam. |
-| Exam | Refers to the exam name. <br> Only "midterm" and "final" are valid inputs for this field. <br> All other inputs will result in an error message. <br> Must **match the exams recorded in CadetHQ exactly**. <br> e.g. If the exam name in CadetHQ is `midterm`, the specified exam name must be `midterm`, not `MIDTERM` or `mid term`. |
+| Field | Requirement                                                                                                                                                                                                            |
+|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Score | Refers to the score attained by the specified student for the specified exam. <br> Must be "unrecorded" (case-insensitive) or a **non-negative integer that is not larger than the max score** of the specified exam.  |
+| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message.                                                    |
 
 Examples:
 * `score 1 ex/final s/80` sets the score of the 1st student in CadetHQ to `80`, for the exam `final`.
@@ -373,7 +379,7 @@ Format: `maxscore ex/EXAM ms/MAXSCORE`
 
 | Field | Requirement                                                                                                                                                                                                                                                                                                                                                 |
 |------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Exam | Refers to the exam name. <br> Only "midterm" and "final" are valid inputs for this field. <br> All other inputs will result in an error message. <br> Must **match the exams recorded in CadetHQ exactly**. <br> e.g. If the exam name in CadetHQ is `midterm`, the specified exam name must be `midterm`, not `MIDTERM` or `mid term`. |
+| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message. |
 | Max Score | Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`.                                                                                                                                     |
 
 Examples:
@@ -404,7 +410,7 @@ CadetHQ data are saved in the hard disk automatically after any command that cha
 
 CadetHQ data are saved automatically as a JSON file `[JAR file location]/data/cadethq.json`. Advanced users are welcome to update data directly by editing that data file, however they must take note that they should not modify the data file while the app itself is running. Furthermore, successful commands from CadetHQ save the current data, possibly overriding manual changes made. Advanced users are therefore not recommended to edit the data file while the app is running as changes can be lost.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<div markdown="span" class="alert alert-warning">:exclamation: <strong>Caution:</strong>
 If your changes to the data file makes its format invalid, cadethq.json will discard all data and start with a placeholder data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the cadethq.json to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
@@ -429,8 +435,8 @@ _Details coming soon ..._
 3. **When a person's details are very long**, e.g. their name, telegram handle, and **CadetHQ is set to a small window width size**, some details may be truncated `(...)` as the text does not wrap around. The remedy is to expand the window width to see the full details.
 4. **Names that contain `/`, `,`, `-`, `@`, or other special characters cannot be added** in CadetHQ. An error message will be shown instead. CadetHQ currently does not support the use of special characters in names as some of these characters such as `/` are used internally in commands.
 
-    <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-    A remedy is to save the name without the special characters. For example, `Sumail S/O Subramaniam` can be saved as `Sumail SO Subramaniam` instead.`Tan Ah Meng, John` can be saved as `Tan Ah Meng John` instead. `Al-Amaan` can be saved as `AlAmaan` instead. `Tan Kah Ming @ Cheng Jia Ming` can be saved simply as `Tan Kah Ming`, or however the user decides to.
+    <div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
+    A remedy is to save the name without the special characters. For example, <code>Sumail S/O Subramaniam</code> can be saved as <code>Sumail SO Subramaniam</code> instead.<code>Tan Ah Meng, John</code> can be saved as <code>Tan Ah Meng John</code> instead. <code>Al-Amaan</code> can be saved as <code>AlAmaan</code> instead. <code>Tan Kah Ming @ Cheng Jia Ming</code> can be saved simply as <code>Tan Kah Ming</code>, or however the user decides to.
     </div>
 5. The local part of **emails** currently can only contain alphanumeric characters and cannot contain special characters. See planned enhancements in the Developer Guide.
 

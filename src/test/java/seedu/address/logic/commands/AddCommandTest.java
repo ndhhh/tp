@@ -10,6 +10,7 @@ import static seedu.address.testutil.TypicalPersons.ALICE;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -161,7 +162,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean isNewMaxScoreValid(Exam exam, int newMaxScore) {
+        public Optional<Integer> isNewMaxScoreValid(Exam exam, int newMaxScore) {
             throw new AssertionError("This method should not be called.");
         }
 

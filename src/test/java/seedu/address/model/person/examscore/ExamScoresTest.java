@@ -92,11 +92,11 @@ public class ExamScoresTest {
         ExamScores examScores = new ExamScores(arrayOfScores);
 
         // valid new max score > MIDTERM_SCORE_A = 50
-        assertTrue(examScores.newMaxScoreValid(MIDTERM_SCORE_A.getExam(), 90));
-        assertTrue(examScores.newMaxScoreValid(MIDTERM_SCORE_A.getExam(), 105));
+        assertTrue(examScores.newMaxScoreValid(MIDTERM_SCORE_A.getExam(), 90).isEmpty());
+        assertTrue(examScores.newMaxScoreValid(MIDTERM_SCORE_A.getExam(), 105).isEmpty());
 
         // invalid new max score < MIDTERM_SCORE_A = 50
-        assertFalse(examScores.newMaxScoreValid(MIDTERM_SCORE_A.getExam(), 40));
+        assertFalse(examScores.newMaxScoreValid(MIDTERM_SCORE_A.getExam(), 40).isEmpty());
 
         // exam name not found throws exception
         assertThrows(IllegalArgumentException.class, () ->

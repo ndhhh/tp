@@ -82,6 +82,7 @@ public class CommandTestUtil {
     public static final String VALID_EXAM = "midterm";
     public static final String VALID_EXAM2 = "final";
     public static final String VALID_SCORE = "0";
+    public static final String UNRECORDED_SCORE = "unrecorded";
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY_STR;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB_STR;
@@ -95,6 +96,7 @@ public class CommandTestUtil {
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
     public static final String EXAM_DESC = " " + PREFIX_EXAM + VALID_EXAM;
     public static final String SCORE_DESC = " " + PREFIX_SCORE + VALID_SCORE;
+    public static final String UNRECORDED_SCORE_DESC = " " + PREFIX_SCORE + UNRECORDED_SCORE;
     public static final String TELEGRAM_HANDLE_DESC_AMY = " " + PREFIX_TELEGRAM_HANDLE + VALID_TELEGRAM_HANDLE_AMY_STR;
     public static final String TELEGRAM_HANDLE_DESC_BOB = " " + PREFIX_TELEGRAM_HANDLE + VALID_TELEGRAM_HANDLE_BOB_STR;
 

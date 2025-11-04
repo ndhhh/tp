@@ -5,6 +5,8 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXAM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MAX_SCORE;
 
+import java.util.Optional;
+
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -32,7 +34,7 @@ public class EditScoreCommand extends Command {
     public static final String MESSAGE_EDIT_MAX_SCORE_SUCCESS = "Edited Exam %1$s max score to %2$d";
     public static final String MESSAGE_DUPLICATE_SCORE = "Given score is the same as the existing score for this exam.";
     public static final String MESSAGE_MAX_SCORE_INVALID =
-            "Max score cannot be less than the recorded score of any student";
+            "Max score cannot be less than the recorded score of any student. The highest recorded score is %d";
     public static final String MESSAGE_EXAM_INVALID = ExamList.MESSAGE_CONSTRAINTS;
 
 
@@ -60,8 +62,9 @@ public class EditScoreCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_SCORE);
         }
 
-        if (!model.isNewMaxScoreValid(exam, this.score)) {
-            throw new CommandException(MESSAGE_MAX_SCORE_INVALID);
+        Optional<Integer> highestRecordedScore = model.isNewMaxScoreValid(exam, this.score);
+        if (highestRecordedScore.isPresent()) {
+            throw new CommandException(String.format(MESSAGE_MAX_SCORE_INVALID, highestRecordedScore.get()));
         }
 
         this.exam.setMaxScore(this.score);

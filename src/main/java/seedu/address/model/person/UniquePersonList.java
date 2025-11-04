@@ -6,6 +6,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -118,19 +119,19 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Checks if the given max score is valid for the given exam.
+     * Returns {@Code Optional<Integer>}> representing the highest recorded score for an exam, which is empty if the
+     * new max score is valid.
      * @param exam The exam to be updated
      * @param newMaxScore The new max score to be checked
-     * @return true if the new max score is valid, else false
      */
-    public boolean isNewMaxScoreValid(Exam exam, int newMaxScore) {
+    public Optional<Integer> isNewMaxScoreValid(Exam exam, int newMaxScore) {
         requireAllNonNull(exam, newMaxScore);
-        for (int i = 0; i < internalList.size(); i++) {
-            if (!internalList.get(i).getExamScores().newMaxScoreValid(exam, newMaxScore)) {
-                return false;
-            }
-        }
-        return true;
+        Optional<Integer> highestScore = Optional.empty();
+        return internalList.stream()
+                .map(person -> person.getExamScores().newMaxScoreValid(exam, newMaxScore))
+                .filter(score -> score.isPresent())
+                .map(higherScore -> higherScore.get())
+                .max((score1, score2) -> score1.compareTo(score2));
     }
 
     @Override

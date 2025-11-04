@@ -31,7 +31,7 @@ public class SortCommandParser implements Parser<SortCommand> {
             // Cannot have 2 or more existing prefixes!
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
         } else if (argMultimap.containsKey(PREFIX_EXAM)) {
-            String examName = argMultimap.getValue(PREFIX_EXAM).get();
+            String examName = argMultimap.getValue(PREFIX_EXAM).get().toLowerCase();
             Exam examType = ParserUtil.parseExam(examName);
             return new SortCommand(PREFIX_EXAM, examType);
         } else if (argMultimap.containsKey(PREFIX_NAME)) {
