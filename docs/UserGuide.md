@@ -273,6 +273,10 @@ Format: `view INDEX` or `view SID`
 You can use the `list` command to restore the full list of students after a `view` command.
 </div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The view command is better suited for finding a single specific student at a time, while the find command can retrieve multiple students at a time (depending on the keyword).
+</div>
+
 Examples:
 * `view 2` displays the 2nd student in CadetHQ.
   ![result for 'view 2'](images/viewIndex.png)
@@ -372,10 +376,10 @@ Format: `maxscore ex/EXAM ms/MAXSCORE`
 
 * Changes the max score of the specified exam `EXAM` to the specified max score `MAXSCORE`.
 
-| Field | Requirement                                                                                                                                                                                                                                                                                                                                                 |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Field | Requirement                                                                                                                                                                                                                                                                                                                             |
+|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Exam | Refers to the exam name. <br> Only "midterm" and "final" are valid inputs for this field. <br> All other inputs will result in an error message. <br> Must **match the exams recorded in CadetHQ exactly**. <br> e.g. If the exam name in CadetHQ is `midterm`, the specified exam name must be `midterm`, not `MIDTERM` or `mid term`. |
-| Max Score | Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`.                                                                                                                                     |
+| Max Score | Refers to the maximum (total) score of the exam. Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`.                                                                |
 
 Examples:
 * `maxscore ex/midterm ms/90` changes the max score of the exam `midterm` to `90`.

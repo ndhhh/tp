@@ -398,9 +398,9 @@ ___
 
 **MSS**
 
-1.  User requests to add student contact, inputting student's ID, name and contact details
-2.  CadetHQ creates student contact
-3.  CadetHQ displays student contact
+1.  User requests to add student contact, inputting student's ID, name and contact details.
+2.  CadetHQ creates student contact.
+3.  CadetHQ displays student contact.
 
     Use case ends.
 
@@ -467,8 +467,8 @@ ___
 
 **MSS**
 
-1.  User requests to delete a specific student in the list using index in list
-2.  CadetHQ deletes the student's contact
+1.  User requests to delete a specific student in the list using index in list.
+2.  CadetHQ deletes the student's contact.
 
     Use case ends.
 
@@ -493,8 +493,8 @@ ___
 
 **MSS**
 
-1.  User requests to delete a specific student in the list using Student ID
-2.  CadetHQ deletes the student's contact
+1.  User requests to delete a specific student in the list using Student ID.
+2.  CadetHQ deletes the student's contact.
 
     Use case ends.
 
@@ -634,8 +634,8 @@ ___
 
 **MSS**
 
-1.  User requests to view a specific student in the list
-2.  CadetHQ displays the student's contact
+1.  User requests to view a specific student in the list.
+2.  CadetHQ displays the student's contact.
 
     Use case ends.
 
@@ -660,8 +660,8 @@ ___
 
 **MSS**
 
-1.  User requests to view a specific student using Student ID
-2.  CadetHQ displays the student's contact
+1.  User requests to view a specific student using Student ID.
+2.  CadetHQ displays the student's contact.
 
     Use case ends.
 
@@ -694,9 +694,9 @@ ___
 
 **MSS**
 
-1.  User requests to record grade of a specific student in the list, inputting test name and score
-2.  CadetHQ updates student's record
-3.  CadetHQ displays student's grade
+1.  User requests to record grade of a specific student in the list, inputting test name and score.
+2.  CadetHQ updates student's record.
+3.  CadetHQ displays student's grade.
 
     Use case ends.
 
@@ -737,9 +737,9 @@ ___
 
 **MSS**
 
-1.  User requests to record grade of a specific student using Student ID, inputting test name and score
-2.  CadetHQ updates student's record
-3.  CadetHQ displays student's grade
+1.  User requests to record grade of a specific student using Student ID, inputting test name and score.
+2.  CadetHQ updates student's record.
+3.  CadetHQ displays student's grade.
 
     Use case ends.
 
@@ -788,9 +788,9 @@ ___
 
 **MSS**
 
-1.  User requests to record attendance of a specific student in the list, inputting tutorial number
-2.  CadetHQ inverts student's attendance
-3.  CadetHQ displays student's attendance
+1.  User requests to record attendance of a specific student in the list, inputting tutorial number.
+2.  CadetHQ inverts student's attendance.
+3.  CadetHQ displays student's attendance.
 
     Use case ends.
 
@@ -830,9 +830,9 @@ ___
 
 **MSS**
 
-1.  User requests to record attendance of a specific student using Student ID, inputting tutorial number
-2.  CadetHQ inverts student's attendance
-3.  CadetHQ displays student's attendance
+1.  User requests to record attendance of a specific student using Student ID, inputting tutorial number.
+2.  CadetHQ inverts student's attendance.
+3.  CadetHQ displays student's attendance.
 
     Use case ends.
 
@@ -943,7 +943,61 @@ ___
 
 ___
 
+**Use case: UC17 - Request for help**
 
+**MSS**
+
+1. User requests for help.
+2. CadetHQ opens the help window with a link to the CadetHQ User Guide.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. Help window is already open but minimised.
+  * 1a1. Help window remains minimised.
+  * 1a2. User manually restores the help window.
+
+___
+
+**UC18 - Add Tags to Contact**
+
+**MSS**
+
+1. User includes tag(s) when <u>adding a new contact(UC01)</u>, or <u>editing a contact(UC06/UC07)</u>.
+2. CadetHQ adds the tag(s) to the student contact, overwriting previous tags.
+
+Use case ends.
+
+**Extensions**
+* 1a. Inputted tag after the prefix is blank.
+  * 1a1. The tags for the specified contact are cleared.
+  
+    Use case resumes from step 2.
+
+___
+
+**Use Case: UC19 - Clearing CadetHQ**
+
+**MSS**
+
+1. User requests to clear CadetHQ.
+2. CadetHQ removes all contacts, displaying an empty list.
+
+    Use case ends.
+
+___
+
+**Use Case: UC20 - Exiting CadetHQ**
+
+**MSS**
+
+1. User requests to exit CadetHQ.
+2. The CadetHQ program closes.
+
+Use case ends.
+
+___
 
 ### Non-Functional Requirements
 
@@ -970,6 +1024,7 @@ ___
 * **TA**: Teaching Assistant - The target users of CadetHQ.
 * **Student ID**: A unique identifier assigned to each student in NUS.
 * **Index**: The position of the student in the displayed list, starting from 1.
+* **Exam**: In the current version of CadetHQ, it refers to either the midterm assessment or the final assessment for CS1101S students in NUS.
 * **JSON**: JavaScript Object Notation - A data format used to store and transfer information. CadetHQ stores data in JSON files.
 * **JAR**: Java Archive - The packaged form of the application that can be distributed and executed.
 
