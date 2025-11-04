@@ -86,8 +86,8 @@ public class MainApp extends Application {
             initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
         } catch (DataLoadingException e) {
             logger.warning("Data file at " + storage.getAddressBookFilePath() + " could not be loaded."
-                    + " Will be starting with an empty AddressBook.");
-            initialData = new AddressBook();
+                    + " Will be starting with a sample AddressBook.");
+            initialData = SampleDataUtil.getSampleAddressBook();
         }
 
         return new ModelManager(initialData, userPrefs);
