@@ -159,7 +159,7 @@ If a JSON file is malformed, the contents will not be loaded and a log message w
 
 No proactive measures are taken to rectify the issue, such as deleting the file or fixing the error. This decision was made to avoid prescribing a fixed approach to resolving malformed JSON files. Instead, we simply load sensible defaults, such as placeholder data when the user loads the application, and overwrite the malformed JSON file when the user inputs data.
 
-For `data/cadethq.json`, this occurs when adding, editing or deleting the student contact list.
+For `data/cadethq.json`, the data file is saved after every successful command, based on the current application state.
 
 For `preferences.json`, this occurs in the `MainApp#initPrefs` method.
 
