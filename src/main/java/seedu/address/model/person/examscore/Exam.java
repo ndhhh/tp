@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 public class Exam {
 
-    public static final String MESSAGE_SCORE_INVALID_INTEGER = "Max score must be a non-negative integer";
+    public static final String MESSAGE_SCORE_INVALID_INTEGER = "Max score must be a non-negative integer < 2147483648";
 
     private final String name;
     private int maxScore;
