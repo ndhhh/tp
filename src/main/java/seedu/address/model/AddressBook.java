@@ -3,6 +3,7 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Optional;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
@@ -116,7 +117,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
-    public boolean isNewMaxScoreValid(Exam exam, int newMaxScore) {
+    public Optional<Integer> isNewMaxScoreValid(Exam exam, int newMaxScore) {
         return persons.isNewMaxScoreValid(exam, newMaxScore);
     }
 
