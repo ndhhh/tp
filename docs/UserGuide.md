@@ -262,7 +262,7 @@ Examples:
 
 ### Viewing a student: `view`
 
-Finds and displays the specified student from CadetHQ.
+Finds and displays the specified student from CadetHQ using their student ID or their index in the list.
 
 Format: `view INDEX` or `view SID`
 
@@ -271,6 +271,10 @@ Format: `view INDEX` or `view SID`
 
 <div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
 You can use the <code>list</code> command to restore the full list of students after a <code>view</code> command.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
+The view command is better suited for finding a single specific student at a time, while the find command can retrieve multiple students at a time (depending on the keyword).
 </div>
 
 Examples:
@@ -353,7 +357,7 @@ Adds the specified score for the specified exam for the specified student from C
 Format: `score INDEX ex/EXAM s/SCORE` or `score SID ex/EXAM s/SCORE`
 
 * Adds the specified score `SCORE` for the specified exam `EXAM`, for the person at the specified `INDEX` or with the given `SID`.
-* If input `SCORE` is `unrecorded`, will set score of specified person and exam to `unrecoded` instead
+* If input `SCORE` is `unrecorded`, will set score of specified person and exam to `unrecorded` instead
 * `INDEX` and `SID` parameters must adhere to constraints detailed in [Contact Details](#contact-details)
 * The default maximum marks for the midterm is 70 and the default maximum marks for the final is 100.
 
@@ -380,7 +384,7 @@ Format: `maxscore ex/EXAM ms/MAXSCORE`
 | Field | Requirement                                                                                                                                                                                                                                                                                                                                                 |
 |------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message. |
-| Max Score | Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`.                                                                                                                                     |
+| Max Score | Refers to the maximum (total) score of the exam. Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`.                                                                                                                                     |
 
 Examples:
 * `maxscore ex/midterm ms/90` changes the max score of the exam `midterm` to `90`.
