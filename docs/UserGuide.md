@@ -298,6 +298,7 @@ Students with no recorded scores will be shifted to the bottom of the displayed 
 
 <div markdown="span" class="alert alert-primary">:bulb: <strong>Note:</strong>
 
+
 * To guard against accidental inputs/typos, `sort` <u>ignores</u> certain parts of the command that are <u>not needed in execution</u>.
 
 * For `sort n/`, you can also input (though discouraged) `sort [preamble] n/[argument]`. Any extraneous inputs **that are not prefixes and/or command parameters used in sort** in the `[preamble]` and `[argument]` sections will be ignored.
@@ -353,7 +354,7 @@ Adds the specified score for the specified exam for the specified student from C
 Format: `score INDEX ex/EXAM s/SCORE` or `score SID ex/EXAM s/SCORE`
 
 * Adds the specified score `SCORE` for the specified exam `EXAM`, for the person at the specified `INDEX` or with the given `SID`.
-* If input `SCORE` is `unrecorded`, will set score of specified person and exam to `unrecoded` instead
+* If input `SCORE` is `unrecorded`, will set score of specified person and exam to `unrecorded` instead
 * `INDEX` and `SID` parameters must adhere to constraints detailed in [Contact Details](#contact-details)
 * The default maximum marks for the midterm is 70 and the default maximum marks for the final is 100.
 
