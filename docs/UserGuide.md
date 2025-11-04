@@ -293,7 +293,7 @@ Format: `sort n/` or `sort ex/EXAM`
 
 | Field | Requirement                                                                                                                                                             |
 |------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message. |                                                                                                                      |
+| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message. |
 
 
 <div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
