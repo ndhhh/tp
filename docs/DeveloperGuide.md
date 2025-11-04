@@ -10,7 +10,6 @@ title: CadetHQ Developer Guide
 ## **Acknowledgements**
 
 * This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
-* The automated GUI tests using TestFX was adapted from the AddressBook-Level4 project by the same creator.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -981,15 +980,15 @@ ___
 
 2. **Improve GUI for displaying of exam scores**: The current GUI displays the midterm and exam scores under each student. As more assessments are added, this may clutter the screen. A **dropdown menu** can be added to only show the exam scores when clicked.
 
-3. **Mass attendance marking**: CadetHQ currently only allows the user to mark each student's attendance one at a time. Adding the ability to mass record attendance makes it easier to mark all students in a tutorial. Some proposed implementations are shown below:
+3. **Improve GUI for displaying attendance**: The current GUI only displays tutorials that students have attended. Instead, it could show all the tutorials, and colour them red and green based on whether students have attended or not.
+
+4. **Mass attendance marking**: CadetHQ currently only allows the user to mark each student's attendance one at a time. Adding the ability to mass record attendance makes it easier to mark all students in a tutorial. Some proposed implementations are shown below:
     * `massattend 1-10 1`: marks attendance for students from index 1 to 10 in the list for tutorial 1.
-    * `massattend t/TAG 5`: marks attendance for students with the specified `TAG` for tutorial 5.
+    * `massattend t/TAG 5`: marks attendance for students with the specified `TAG` for tutorial 5. <br>
 
-4. **Enhanced find functionality**: CadetHQ currently only allows the user to search by name. Adding the ability to search by tutorial attended or tags, and allowing partial matches makes it easier for the user to find the students they are looking for.
+5. **Enhanced find functionality**: CadetHQ currently only allows the user to search by name. Adding the ability to search by tutorial attended or tags, and allowing partial matches makes it easier for the user to find the students they are looking for.
 
-5. **Improve GUI for displaying attendance**: The current GUI only displays tutorials that students have attended. Instead, it could show all the tutorials, and colour them red and green based on whether students have attended or not.
-
-6. **More sorting**: Currently, CadetHQ only supports sorting in ascending order of names and exams. Add more sorting options like sorting in descending order or by attendance allows TAs to have more flexibility in list management.
+6. **Enhanced sort functionality**: Currently, CadetHQ only supports sorting in ascending order of names and exams. Add more sorting options like sorting in descending order or by attendance allows TAs to have more flexibility in list management.
 
 7. **Improved email validation**: Currently, CadetHQ only supports alphanumeric characters for the local part of the email. CadetHQ will eventually support the use of special characters such that the email still remains compliant with the nus friendly mail validations.
 
