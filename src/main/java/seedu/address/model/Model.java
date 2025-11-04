@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -82,9 +83,10 @@ public interface Model {
     public void sortPersonsByExam(Exam exam);
 
     /**
-     * Checks if a new max score of an exam is valid, for updating the max score
+     * Returns an {@Code Optional<Integer>}, representing the highest recorded score if the new max score of an
+     * exam is invalid, and is empty otherwise.
      */
-    public boolean isNewMaxScoreValid(Exam exam, int newMaxScore);
+    public Optional<Integer> isNewMaxScoreValid(Exam exam, int newMaxScore);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.

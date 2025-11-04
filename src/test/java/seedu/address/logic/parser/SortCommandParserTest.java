@@ -45,6 +45,12 @@ public class SortCommandParserTest {
     public void parse_examMidterm_success() throws ParseException {
         SortCommand c = parser.parse(" ex/midterm");
         assertEquals(sortByMidtermCommand, c);
+
+        SortCommand uppercase = parser.parse(" ex/MIDTERM");
+        assertEquals(sortByMidtermCommand, uppercase);
+
+        SortCommand mixedCase = parser.parse(" ex/midTerm");
+        assertEquals(sortByMidtermCommand, mixedCase);
     }
 
     /**
@@ -56,6 +62,12 @@ public class SortCommandParserTest {
     public void parse_examFinal_success() throws ParseException {
         SortCommand c = parser.parse(" ex/final");
         assertEquals(sortByFinalCommand, c);
+
+        SortCommand uppercase = parser.parse(" ex/FINAL");
+        assertEquals(sortByFinalCommand, uppercase);
+
+        SortCommand mixedCase = parser.parse(" ex/Final");
+        assertEquals(sortByFinalCommand, mixedCase);
     }
 
     /**

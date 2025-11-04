@@ -22,7 +22,7 @@ public class Exam {
      * @param maxScore A valid max score.
      */
     public Exam(String name, int maxScore) {
-        this.name = name;
+        this.name = name.toLowerCase();
         this.maxScore = maxScore;
     }
 

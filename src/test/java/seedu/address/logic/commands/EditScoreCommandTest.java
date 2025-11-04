@@ -66,7 +66,8 @@ public class EditScoreCommandTest {
         EditScoreCommand command = new EditScoreCommand(ExamList.getExamFromName("final"), 60);
 
         Exception exception = assertThrows(CommandException.class, () -> command.execute(model));
-        assertEquals(EditScoreCommand.MESSAGE_MAX_SCORE_INVALID, exception.getMessage());
+        assertEquals(String.format(EditScoreCommand.MESSAGE_MAX_SCORE_INVALID, FINAL_SCORE_B.getScore().get()),
+                exception.getMessage());
     }
 
     @Test

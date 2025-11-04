@@ -36,11 +36,25 @@ public class EditScoreCommandParserTest {
 
     @Test
     public void parse_success() {
-        EditScoreCommand expectedCommand =
+        EditScoreCommand expectedCommand;
+
+        expectedCommand =
                 new EditScoreCommand(ExamList.getExamFromName(VALID_EXAM), 105);
         String userinput = EditScoreCommand.COMMAND_WORD + " "
                 + PREFIX_EXAM + VALID_EXAM + " " + PREFIX_MAX_SCORE + "105";
         assertParseSuccess(parser, userinput, expectedCommand);
+
+        expectedCommand =
+                new EditScoreCommand(ExamList.getExamFromName(VALID_EXAM), 106);
+        String uppercaseExam = EditScoreCommand.COMMAND_WORD + " "
+                + PREFIX_EXAM + VALID_EXAM.toUpperCase() + " " + PREFIX_MAX_SCORE + "106";
+        assertParseSuccess(parser, uppercaseExam, expectedCommand);
+
+        expectedCommand =
+                new EditScoreCommand(ExamList.getExamFromName("midterm"), 107);
+        String mixedCaseExam = EditScoreCommand.COMMAND_WORD + " "
+                + PREFIX_EXAM + "midTerm" + " " + PREFIX_MAX_SCORE + "107";
+        assertParseSuccess(parser, mixedCaseExam, expectedCommand);
     }
 
     @Test

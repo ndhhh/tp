@@ -40,7 +40,7 @@ public class ScoreCommandParser implements Parser<ScoreCommand> {
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_EXAM, PREFIX_SCORE);
 
-        String examName = argMultimap.getValue(PREFIX_EXAM).get();
+        String examName = argMultimap.getValue(PREFIX_EXAM).get().toLowerCase();
         String score = argMultimap.getValue(PREFIX_SCORE).get();
 
         Score newScore = ParserUtil.parseScore(examName, score);

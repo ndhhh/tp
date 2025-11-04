@@ -58,7 +58,7 @@ public class ExamList {
     public static boolean isValidExamName(String examName) {
         for (int i = 0; i < examList.size(); i++) {
             String currentExamName = examList.get(i).getName();
-            if (examName.equals(currentExamName)) {
+            if (examName.toLowerCase().equals(currentExamName)) {
                 return true;
             }
         }
