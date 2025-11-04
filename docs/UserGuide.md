@@ -114,7 +114,9 @@ When entering a contact detail as a parameter for any command:
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
 * Parameters prefixed with a `/` can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable. <br> The exceptions apply to the `SID/index` parameter. For example, the `add` command always expects the Student ID as the first parameter, the rest of the parameters can be in any order. The `edit` command always expects either the 1-based list index or the Student ID as the first parameter.
+  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable. <br> <br> 
+  An exception to this is the `SID/index` parameter. For example, the `add` command always expects the Student ID as the first parameter, the rest of the parameters can be in any order. <br> 
+  The other exception to this rule is the `edit` command. It always expects either the 1-based list index or the Student ID as the first parameter.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
@@ -130,7 +132,7 @@ When entering a contact detail as a parameter for any command:
 
 **:information_source: Notes about the screenshots:**<br>
 
-* Note: All screenshots in the User Guide have their commands manually inputted into the command box again to facilitate understanding. In practice, after entering the command, the command box will be empty.
+* Note: Some screenshots in the User Guide have their commands manually inputted into the command box again to facilitate understanding. In practice, after entering a successful command, the command box will be empty.
 
 </div>
 
@@ -180,7 +182,7 @@ Duplicate students cannot be added to CadetHQ. A student is considered a duplica
 
 Edits an existing student in CadetHQ.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [h/TELEGRAM_HANDLE] [t/TAG]…​` or `edit SID [n/NAME] [p/PHONE] [e/EMAIL] [h/TELEGRAM_HANDLE] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [h/TELEGRAM_HANDLE] [t/TAG]…​` or <br> `edit SID [n/NAME] [p/PHONE] [e/EMAIL] [h/TELEGRAM_HANDLE] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX` or with the given `SID`.
 * All parameters must not be blank
@@ -217,12 +219,8 @@ Deletes the specified student from CadetHQ.
 
 Format: `delete INDEX` or `delete SID`
 
-* Deletes the student at the specified `INDEX` or with the given `SID`.
+* Deletes the student at the specified `INDEX` or with the given `SID` in the displayed list.
 * `INDEX` and `SID` parameters must adhere to constraints detailed in [Contact Details](#contact-details)
-
-<div markdown="span" class="alert alert-warning">:exclamation: <strong>Warning:</strong>
-Use the <code>list</code> command to restore the full list of students before using a <code>delete</code> command.
-</div>
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in CadetHQ.
@@ -340,10 +338,10 @@ Entering the same <code>attend</code> command inverts the attendance for the giv
 </div>
 
 Examples:
-* `attend 1 6` adds attendance for tutorial `6` for the 1st student in CadetHQ.
+* `attend 1 6` adds attendance for tutorial `6` for the 1st student in the displayed list.
   ![result for 'attend 1 6'](images/attendIndex.png)
-* `attend A0000001A 2` adds attendance for tutorial `2` for the student with SID `A0000001A`.
-* `attend 1 6` removes the attendance for tutorial `6` for the 1st student in CadetHQ if attendance has already been taken for this tutorial and this student.
+* `attend A0000001A 2` adds attendance for tutorial `2` for the student with SID `A0000001A` in the displayed list.
+* `attend 1 6` removes the attendance for tutorial `6` for the 1st student in the displayed list if attendance has already been taken for this tutorial and this student.
   ![result for a second 'attend 1 6'](images/removeAttend.png)
 
 ---
@@ -363,14 +361,14 @@ Format: `score INDEX ex/EXAM s/SCORE` or `score SID ex/EXAM s/SCORE`
 
 
 
-| Field | Requirement                                                                                                                                                                                                            |
-|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Score | Refers to the score attained by the specified student for the specified exam. <br> Must be "unrecorded" (case-insensitive) or a **non-negative integer that is not larger than the max score** of the specified exam.  |
-| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message.                                                    |
+| Field | Requirement                                                                                                                                                                                                           |
+|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Score | Refers to the score attained by the specified student for the specified exam. <br> Must be "unrecorded" (case-insensitive) or a **non-negative integer that is not larger than the max score** of the specified exam. |
+| Exam  | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field.                                                                                                          |
 
 Examples:
-* `score 1 ex/final s/80` sets the score of the 1st student in CadetHQ to `80`, for the exam `final`.
-* `score A0000001A ex/midterm s/70` sets the score of the student with SID `A0000001A` in CadetHQ to `70`, for the exam `midterm`.
+* `score 1 ex/final s/80` sets the score of the 1st student in the displayed list to `80`, for the exam `final`.
+* `score A0000001A ex/midterm s/70` sets the score of the student with SID `A0000001A` in the displayed list to `70`, for the exam `midterm`.
   ![result for 'score A0000001A ex/midterm s/70'](images/scoreSID.png)
 
 ### Editing the max score of an exam: `maxscore`
@@ -381,10 +379,10 @@ Format: `maxscore ex/EXAM ms/MAXSCORE`
 
 * Changes the max score of the specified exam `EXAM` to the specified max score `MAXSCORE`.
 
-| Field | Requirement                                                                                                                                                                                                                                                                                                                                                 |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Exam | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field. <br> All other inputs will result in an error message. |
-| Max Score | Refers to the maximum (total) score of the exam. Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`.                                                                                                                                     |
+| Field     | Requirement                                                                                                                                                                                                             |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Exam      | Refers to the exam name. <br> Only "midterm" and "final" (case-insensitive) are valid inputs for this field.                                                                                                            |
+| Max Score | Must be a **non-negative integer**, and it **must be more than or equal to any recorded score** for the specified exam. <br> e.g. If a student has score `70/80` for the exam, the new max score must be at least `70`. |
 
 Examples:
 * `maxscore ex/midterm ms/90` changes the max score of the exam `midterm` to `90`.
