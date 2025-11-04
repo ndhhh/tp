@@ -262,7 +262,7 @@ Examples:
 
 ### Viewing a student: `view`
 
-Finds and displays the specified student from CadetHQ.
+Finds and displays the specified student from CadetHQ using their student ID or their index in the list.
 
 Format: `view INDEX` or `view SID`
 
@@ -273,7 +273,7 @@ Format: `view INDEX` or `view SID`
 You can use the `list` command to restore the full list of students after a `view` command.
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <strong>Tip:</strong>
 The view command is better suited for finding a single specific student at a time, while the find command can retrieve multiple students at a time (depending on the keyword).
 </div>
 
